@@ -6,7 +6,7 @@ Suite setup        Setup procedures
 # Suite teardown     Teardown procedures
 
 *** Variables ***
-${login}        r2d2@rebellion.com
+${login}        obevan@rebellion.com
 ${password}     password123 
 
 
