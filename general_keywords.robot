@@ -3,11 +3,9 @@ Library          SeleniumLibrary
 Library          String
 
 *** Variables ***
-${login}        han.solo@rebellion.com
-${password}     password123 
+
 ${browser}      Firefox
 ${url}          http://46.23.37.85:8000/ 
-
 ${documentnumber}    ${EMPTY}
 
 *** Keywords ***
@@ -23,7 +21,19 @@ Setup procedures
     Click Button    //*[@type="submit"] 
 
 Teardown procedures
+    Log out
     Close Browser
+
+Log out
+    Click application element    //input[@value="Log out"] 
+    Wait Until Element Is Visible    //input[@id="Email"]
+    Wait Until Element Is Visible    //input[@id="Password"]
+
+Check document data 
+    [Arguments]    ${xpath}    ${data} 
+    List Selection Should Be    ${xpath}    ${data}
+    # Element Text Should Be    ${xpath}    ${data}
+    
 
 Input credentials
     [Arguments]    ${login}    ${password}
@@ -58,6 +68,10 @@ Edit document
     Input text       //input[@id="NormativeDocument_Description"]    ${description}
     Select From List By Label    //select[@id="NormativeDocument_ConfidentialityLevelId"]    ${confidentiality}
     Click Button    //input[@value="Save"]
+
+Click cancel button
+    Click Element    //a[@href="/Home" and @class="btn btn"]
+    
 
 Create document
     [Arguments]    ${number}    ${type}    ${description}    ${confidentiality}
