@@ -5,6 +5,9 @@ Resource         general_keywords.robot
 Suite setup        Setup procedures for login 
 Suite teardown     Teardown procedures
 
+*** Variables ***
+${login}        han.solo@rebellion.com
+${password}     password123 
 
 *** Test Cases ***
 Login with valid credentials 
