@@ -3,7 +3,7 @@ Library          SeleniumLibrary
 Resource         general_keywords.robot 
 
 Suite setup        Setup procedures for login
-Suite teardown     Teardown procedures
+Suite teardown     Teardown procedures for login
 
 
 *** Test Cases ***

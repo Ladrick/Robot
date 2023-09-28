@@ -24,6 +24,9 @@ Teardown procedures
     Log out
     Close Browser
 
+Teardown procedures for login
+    Close browser
+
 Log out
     Click application element    //input[@value="Log out"] 
     Wait Until Element Is Visible    //input[@id="Email"]
